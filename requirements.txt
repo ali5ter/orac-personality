@@ -3,12 +3,16 @@
 # Core AI Integration
 anthropic>=0.39.0
 
-# Optional: Voice Integration
+# Bot Integrations (optional)
+discord.py>=2.3.0  # For Discord bot
+slack-bolt>=1.18.0  # For Slack bot
+
+# Voice Integration (optional)
 elevenlabs>=0.2.0
 SpeechRecognition>=3.10.0
 PyAudio>=0.2.13
 
-# Optional: Web Interface
+# Web Interface (optional)
 flask>=3.0.0
 flask-cors>=4.0.0
 
