@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-Discord ORAC Bot - Blake's 7 Supercomputer Personality
+@file discord_orac_bot.py
+@brief Discord ORAC Bot - Blake's 7 Supercomputer Personality
 
 Setup:
 1. pip install discord.py anthropic python-dotenv
@@ -12,6 +13,8 @@ Setup:
 
 Invite URL (replace CLIENT_ID):
 https://discord.com/oauth2/authorize?client_id=CLIENT_ID&permissions=2048&scope=bot
+
+@author Claude Code (as ORAC)
 """
 
 import discord

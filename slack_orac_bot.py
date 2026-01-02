@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-Slack ORAC Bot - Blake's 7 Supercomputer Personality
+@file slack_orac_bot.py
+@brief Slack ORAC Bot - Blake's 7 Supercomputer Personality
 
 Setup:
 1. pip install slack-bolt anthropic python-dotenv
@@ -20,6 +21,8 @@ Setup:
 Usage in Slack:
 - Mention: @ORAC How do I optimize this code?
 - DM: Just type your question directly
+
+@author Claude Code (as ORAC)
 """
 
 from slack_bolt import App

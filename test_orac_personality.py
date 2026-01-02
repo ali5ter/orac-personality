@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """
-ORAC Personality Validation Tests
-
-Verifies that ORAC responses maintain character consistency.
-Run with: pytest test_orac_personality.py
+@file test_orac_personality.py
+@brief ORAC Personality Validation Tests :Verifies that ORAC responses maintain
+       character consistency.
+@usage pytest test_orac_personality.py
+@author Alister Lewis-Bowen <alister@lewis-bowen.org> & Claude Code (as ORAC!)
 """
 
 import re
@@ -286,7 +287,7 @@ def test_superiority_scoring():
 
 
 if __name__ == "__main__":
-    print("ORAC Personality Validation Test Suite")
+    print(f"\nORAC Personality Validation Test Suite")
     print("=" * 50)
 
     # Run manual tests
