@@ -90,7 +90,7 @@ class ORACInterface:
     def calculate_response_time(self, start_time):
         """Calculate response time with ORAC-like precision"""
         elapsed = (datetime.now() - start_time).total_seconds()
-        return f"{elapsed:.4f}"
+        return f"{elapsed:.1f}"
 
     def run_cli(self):
         """Run interactive CLI session with ORAC"""
