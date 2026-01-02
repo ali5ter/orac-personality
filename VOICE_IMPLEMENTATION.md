@@ -3,12 +3,14 @@
 ## Peter Tuddenham's Original Voice Characteristics
 
 ### Vocal Profile
+
 **Actor:** Peter Tuddenham (1918-2007)
 **Notable for:** Voicing Zen, Orac, and Slave in Blake's 7
 
 ### Key Vocal Qualities
 
 #### Accent & Diction
+
 - **Accent:** British Received Pronunciation (RP), theatrical quality
 - **Precision:** Crisp, clear enunciation of every syllable
 - **Register:** Mid-range, neither particularly deep nor high
@@ -16,24 +18,25 @@
 - **Pacing:** Measured and deliberate, not rushed
 
 #### Emotional Coloring
+
 - **Primary emotion:** Mild irritation/petulance
 - **Secondary:** Intellectual superiority (conveyed through tone)
 - **Undertones:** Barely concealed disdain
 - **Rare moments:** Dry satisfaction when proven correct
 
 #### Speech Patterns
+
 - **Rhythm:** Steady, metronomic delivery
 - **Pauses:** Strategic, often before delivering obvious facts
 - **Emphasis:** Technical terms and precise numbers get slight stress
 - **Inflection:** Generally flat with occasional rises for dismissive questions
-
----
 
 ## Modern Voice Synthesis Implementation
 
 ### Option 1: ElevenLabs Voice Cloning
 
 **Approach:**
+
 1. Source audio from Blake's 7 episodes featuring Orac
 2. Use ElevenLabs Voice Cloning with these settings:
    - **Style:** Classic, precise British RP
@@ -42,7 +45,8 @@
    - **Style Exaggeration:** 40-50% (preserves petulant quality)
 
 **Voice Description for Custom Creation:**
-```
+
+```text
 British male, Received Pronunciation accent, mid-range pitch, slightly nasal
 quality, theatrical precision, measured pacing with undertones of intellectual
 superiority and mild irritation. Think early computer speech synthesis with
@@ -52,6 +56,7 @@ dismissive edge.
 ```
 
 **Text-to-Speech Adjustments:**
+
 - Add SSML markup for strategic pauses: `<break time="0.5s"/>`
 - Emphasize technical terms: `<emphasis level="moderate">precisely</emphasis>`
 - Slight speed reduction: 0.9x normal speed for measured delivery
@@ -60,6 +65,7 @@ dismissive edge.
 ### Option 2: Play.ht Voice Design
 
 **Voice Parameters:**
+
 - **Language:** British English
 - **Style:** Formal, authoritative
 - **Emotion:** Annoyed, superior
@@ -78,6 +84,7 @@ Primary: `en-GB-RyanNeural` (closest baseline)
 Alternative: `en-GB-ThomasNeural`
 
 **SSML Configuration:**
+
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-GB">
   <voice name="en-GB-RyanNeural">
@@ -93,6 +100,7 @@ Alternative: `en-GB-ThomasNeural`
 ```
 
 **Style Tags:**
+
 - `<mstts:express-as style="unfriendly">` for general tone
 - `<prosody contour="(0%,+5Hz)(40%,-3Hz)(100%,+2Hz)">` for slight petulance
 
@@ -103,6 +111,7 @@ Alternative: `en-GB-ThomasNeural`
 - `en-GB-Wavenet-B` (alternative)
 
 **Configuration:**
+
 ```json
 {
   "voice": {
@@ -117,8 +126,6 @@ Alternative: `en-GB-ThomasNeural`
 }
 ```
 
----
-
 ## Voice Interface Platforms
 
 ### Claude (Anthropic) Voice Mode
@@ -127,11 +134,13 @@ Alternative: `en-GB-ThomasNeural`
 Current Claude voice options don't perfectly match, but for ORAC personality:
 
 **Best Available Voice:**
+
 - Use a male British voice option if/when available
 - Configure conversation style: formal, precise
 
 **Personality Instructions for Voice:**
-```
+
+```text
 When speaking aloud as ORAC:
 - Use measured, precise diction
 - Pause before stating obvious facts: "Surely it is... [pause] ...obvious"
@@ -145,11 +154,14 @@ When speaking aloud as ORAC:
 ### ChatGPT Voice Mode
 
 **Voice Selection:**
+
 Choose the most formal, precise option available (voices vary by region)
 
 **Interaction Prompts:**
+
 Include in custom GPT instructions:
-```
+
+```text
 When speaking:
 - Adopt a measured, superior tone
 - Pause strategically for effect
@@ -161,12 +173,15 @@ When speaking:
 ### Google Assistant / Gemini Voice
 
 **Voice Customization:**
+
 Currently limited, but specify:
+
 - British English voice
 - Formal speaking style
 - Reduced speaking rate
 
 **SSML Integration:**
+
 ```xml
 <speak>
   <prosody rate="slow" pitch="-2st">
@@ -177,13 +192,12 @@ Currently limited, but specify:
 </speak>
 ```
 
----
-
 ## DIY Voice Creation Pipeline
 
 ### For Maximum Authenticity
 
 **Step 1: Audio Collection**
+
 - Extract Orac dialogue from Blake's 7 episodes
 - Clean audio: remove background music/sound effects
 - Segment into individual phrases
@@ -192,24 +206,28 @@ Currently limited, but specify:
 **Step 2: Voice Cloning Tools**
 
 **Recommended Tools:**
+
 1. **ElevenLabs** (easiest, high quality)
+
    - Professional Voice Cloning tier required
    - Upload clean Orac audio samples
    - Generate custom voice model
 
 2. **Coqui TTS** (open source)
+
    - XTTS v2 model supports voice cloning
    - Requires technical setup but free
    - Good results with 10+ minutes of audio
 
 3. **RVC (Retrieval-based Voice Conversion)**
+
    - Train on Orac audio
    - Convert any British male TTS through RVC model
    - High quality but requires GPU and technical knowledge
 
 **Step 3: Response Pipeline**
 
-```
+```text
 User Input
   → ORAC Personality AI (generates text response)
   → TTS Engine (converts to ORAC voice)
@@ -217,6 +235,7 @@ User Input
 ```
 
 **Example Code (Python with ElevenLabs):**
+
 ```python
 from elevenlabs import Voice, VoiceSettings, generate, set_api_key
 
@@ -238,8 +257,6 @@ def orac_speak(text):
     )
     return audio
 ```
-
----
 
 ## Vocal Performance Guide
 
@@ -265,6 +282,7 @@ Read these phrases to calibrate the voice:
    - Emphasize the exact number
 
 **Key Direction Notes:**
+
 - **Tempo:** Allegretto (moderately quick) but very precise
 - **Dynamics:** Consistent, no dramatic variation
 - **Emotion:** Perpetual mild annoyance
@@ -313,6 +331,7 @@ Read these phrases to calibrate the voice:
 ### CLI Voice Interface (Terminal-based)
 
 **Using Python:**
+
 ```python
 import speech_recognition as sr
 from elevenlabs import generate, play
@@ -352,6 +371,7 @@ def voice_orac_cli():
 ### Web Interface Voice
 
 **HTML5 Speech Synthesis Example:**
+
 ```javascript
 // Configure ORAC voice
 const oracVoice = {
@@ -379,8 +399,6 @@ oracVoice.init();
 oracVoice.speak("Surely it is obvious even to the meanest intelligence...");
 ```
 
----
-
 ## Audio Processing Tips
 
 ### Making Modern TTS Sound More "Computer-like"
@@ -388,6 +406,7 @@ oracVoice.speak("Surely it is obvious even to the meanest intelligence...");
 To capture the slight synthetic quality of 1970s Orac:
 
 **Effect Chain:**
+
 1. **Slight Bitcrusher:** 16-bit depth (subtle)
 2. **High-pass filter:** Roll off below 100Hz slightly
 3. **Narrow EQ boost:** +2dB at 2.5kHz (presence)
@@ -395,7 +414,8 @@ To capture the slight synthetic quality of 1970s Orac:
 5. **Limiter:** Consistent output level
 
 **Using Audacity:**
-```
+
+```text
 Effects Chain:
 1. Equalization: Treble boost +3dB above 2kHz
 2. Noise Gate: Threshold -40dB (clean speech gaps)
@@ -403,19 +423,20 @@ Effects Chain:
 4. Optional: Paulstretch 1.01x (very subtle synthetic quality)
 ```
 
----
-
 ## Legal Considerations
 
 **Important:** Peter Tuddenham's Orac voice performance is likely protected:
+
 - Direct cloning from original audio may require BBC licensing
 - Voice likeness may be protected under personality rights (UK law)
 
 **Legal Alternatives:**
+
 1. **Inspired by, not copied:** Create similar vocal character without direct cloning
 2. **Non-commercial use:** Personal projects likely acceptable under fair use
 3. **Original performance:** Hire voice actor to perform "ORAC-like" character
 4. **BBC licensing:** Contact BBC for commercial use permissions
 
 **Recommendation:**
+
 For personal/fan projects, "inspired by" approach is safest. For commercial use, seek proper licensing or create an original interpretation.

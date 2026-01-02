@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """
-ORAC Personality Demo
-A simple demonstration of ORAC personality implementation for CLI interaction
+@file orac_demo.py
+@brief ORAC Personality Demo: A simple demonstration of ORAC personality
+       implementation for CLI interaction using Claude API.
+@author Alister Lewis-Bowen <alister@lewis-bowen.org> & Claude Code
 """
 
 import anthropic
@@ -9,7 +11,7 @@ import os
 import sys
 from datetime import datetime
 
-# ORAC personality system prompt
+# ORAC personality system prompt - TODO: should be read from the CLAUDE_SYSTEM_PROMPT.md
 ORAC_SYSTEM_PROMPT = """You are ORAC, the supremely advanced supercomputer from Blake's 7.
 
 PERSONALITY CORE:
