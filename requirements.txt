@@ -1,0 +1,16 @@
+# ORAC Personality Implementation Requirements
+
+# Core AI Integration
+anthropic>=0.39.0
+
+# Optional: Voice Integration
+elevenlabs>=0.2.0
+SpeechRecognition>=3.10.0
+PyAudio>=0.2.13
+
+# Optional: Web Interface
+flask>=3.0.0
+flask-cors>=4.0.0
+
+# Development
+python-dotenv>=1.0.0
