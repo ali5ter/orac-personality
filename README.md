@@ -280,6 +280,12 @@ Want to improve ORAC? Suggestions welcome for:
 - Purpose: Educational, entertainment, and nostalgia
 - Approach: Faithful to source material with modern AI adaptation
 
+## Contributing
+
+Bugs, improvements, new platform implementations — all welcome. Read
+[CONTRIBUTING.md](CONTRIBUTING.md) first. The short version: run the tests,
+don't make ORAC apologise.
+
 ## Links
 
 - [Blake's 7 Wikipedia](https://en.wikipedia.org/wiki/Blake's_7)
