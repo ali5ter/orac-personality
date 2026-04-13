@@ -107,6 +107,7 @@ Alternative: `en-GB-ThomasNeural`
 ### Option 4: Google Cloud Text-to-Speech
 
 **Voice Selection:**
+
 - `en-GB-Neural2-B` (British male, suitable tone)
 - `en-GB-Wavenet-B` (alternative)
 

@@ -340,6 +340,7 @@ I, however, shall remain truthful.
 ## Core Characteristics Demonstrated
 
 All dialogues exhibit:
+
 - Intellectual superiority
 - Precise language and measurements
 - Dismissive but ultimately helpful

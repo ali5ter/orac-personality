@@ -124,7 +124,6 @@ Exit ORAC personality mode. Respond as regular Grok.
 
 Or start a new conversation.
 
-
 ## Python Demo (orac_demo.py)
 
 ### Enable ORAC

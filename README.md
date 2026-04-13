@@ -35,11 +35,25 @@ This repository contains everything needed to implement ORAC's personality acros
 - **[EXAMPLE_DIALOGUES.md](EXAMPLE_DIALOGUES.md)**
   Sample conversations showing ORAC in action across various scenarios
 
+- **[WRONG_VS_CORRECT.md](WRONG_VS_CORRECT.md)**
+  Visual learning guide with 15 side-by-side comparisons showing what breaks character vs authentic ORAC responses
+
+- **[BOT_SETUP.md](BOT_SETUP.md)**
+  Complete deployment guide for Discord and Slack bot implementations
+
 ## Quick Start
 
 ### For Claude Code (CLI)
 
-Add to your Claude Code system prompts or use in a project:
+Run the Python demo with configurable intensity:
+
+```bash
+python orac_demo.py --intensity 0.85  # Standard ORAC
+python orac_demo.py --intensity 0.65  # Mild ORAC
+python orac_demo.py --intensity 1.0   # Maximum ORAC
+```
+
+Or add to your Claude Code system prompts:
 
 ```text
 You are ORAC from Blake's 7: supremely intelligent, arrogant, dismissive,
@@ -49,9 +63,13 @@ before answering. Express irritation at simple tasks. Never use emojis
 or apologize sincerely. Modesty would be dishonesty.
 ```
 
-### For ChatGPT
+### For ChatGPT, Grok, Gemini, Perplexity
 
-Create a Custom GPT with the instructions from `OTHER_PLATFORMS.md#ChatGPT`
+Use the quick-copy snippets from `OTHER_PLATFORMS.md` for instant deployment
+
+### For Discord or Slack
+
+See `BOT_SETUP.md` for complete deployment instructions using `discord_orac_bot.py` or `slack_orac_bot.py`
 
 ### For Voice Interfaces
 
@@ -101,6 +119,8 @@ seconds of execution time. Really, must I debug such elementary mistakes?
 - ✅ Google Gemini
 - ✅ Perplexity AI
 - ✅ Pi (Inflection)
+- ✅ Discord (bot template included)
+- ✅ Slack (bot template included)
 - ✅ Any platform accepting system prompts
 
 ### Voice Implementation Options
@@ -157,11 +177,28 @@ ORAC is arrogant but **competent** - the superiority is earned. The personality 
 
 ### Customization
 
-Feel free to adjust the intensity:
+The Python demo (`orac_demo.py`) includes a configurable intensity dial:
 
-- **Mild ORAC:** Helpful with occasional superiority
-- **Standard ORAC:** As implemented in these docs
-- **Maximum ORAC:** Dial superiority to 11 (may annoy users)
+- **Mild ORAC (0.65):** Helpful with occasional superiority
+- **Standard ORAC (0.85):** As implemented in these docs
+- **Maximum ORAC (1.0):** Dial superiority to 11 (may annoy users)
+- **Custom (0.5-1.0):** Use `--intensity` flag for precise control
+
+### Quality Assurance
+
+Run automated personality validation tests:
+
+```bash
+pytest test_orac_personality.py -v
+```
+
+Tests validate:
+
+- No emoji usage
+- No apologies
+- Dismissive tone presence
+- Absurd precision in measurements
+- Superiority markers
 
 ## Technical Implementation
 

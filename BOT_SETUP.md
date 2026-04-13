@@ -7,13 +7,14 @@ Deployment instructions for Discord and Slack bots.
 ## Discord Bot Setup
 
 ### Prerequisites
+
 ```bash
 pip install discord.py anthropic python-dotenv
 ```
 
 ### 1. Create Discord Bot
 
-1. Go to https://discord.com/developers/applications
+1. Go to <https://discord.com/developers/applications>
 2. Click "New Application"
 3. Name it "ORAC"
 4. Go to "Bot" tab → "Add Bot"
@@ -24,6 +25,7 @@ pip install discord.py anthropic python-dotenv
 ### 2. Configure Environment
 
 Create `.env` file:
+
 ```bash
 DISCORD_TOKEN=your_discord_bot_token_here
 ANTHROPIC_API_KEY=your_anthropic_api_key_here
@@ -60,13 +62,14 @@ python discord_orac_bot.py
 ## Slack Bot Setup
 
 ### Prerequisites
+
 ```bash
 pip install slack-bolt anthropic python-dotenv
 ```
 
 ### 1. Create Slack App
 
-1. Go to https://api.slack.com/apps
+1. Go to <https://api.slack.com/apps>
 2. Click "Create New App" → "From scratch"
 3. Name it "ORAC"
 4. Select your workspace
@@ -99,10 +102,11 @@ pip install slack-bolt anthropic python-dotenv
 ### 5. Configure Environment
 
 Create `.env` file:
+
 ```bash
-SLACK_BOT_TOKEN=xoxb-your-bot-token
-SLACK_APP_TOKEN=xapp-your-app-token
-ANTHROPIC_API_KEY=your_anthropic_api_key
+SLACK_BOT_TOKEN=<your-slack-bot-token>
+SLACK_APP_TOKEN=<your-slack-app-token>
+ANTHROPIC_API_KEY=<your-anthropic-api-key>
 ```
 
 ### 6. Optional: Slash Command
@@ -122,11 +126,13 @@ python slack_orac_bot.py
 ### 8. Usage in Slack
 
 **Mentions:**
+
 ```
 @ORAC How do I optimize this database query?
 ```
 
 **Direct Messages:**
+
 ```
 How do I implement a binary tree?
 clear                # Clear history
@@ -135,6 +141,7 @@ status               # Check status
 ```
 
 **Slash Command (if configured):**
+
 ```
 /orac How do I write a Python decorator?
 ```
@@ -152,7 +159,7 @@ Both bots require:
 | `SLACK_BOT_TOKEN` | Slack bot token (xoxb-) | Slack |
 | `SLACK_APP_TOKEN` | Slack app token (xapp-) | Slack |
 
-Get Anthropic API key: https://console.anthropic.com/
+Get Anthropic API key: <https://console.anthropic.com/>
 
 ---
 
@@ -173,6 +180,7 @@ python slack_orac_bot.py
 #### Option 1: systemd (Linux)
 
 Create `/etc/systemd/system/orac-discord.service`:
+
 ```ini
 [Unit]
 Description=ORAC Discord Bot
@@ -192,6 +200,7 @@ WantedBy=multi-user.target
 ```
 
 Enable and start:
+
 ```bash
 sudo systemctl enable orac-discord
 sudo systemctl start orac-discord
@@ -201,6 +210,7 @@ sudo systemctl status orac-discord
 #### Option 2: Docker
 
 Create `Dockerfile`:
+
 ```dockerfile
 FROM python:3.10-slim
 
@@ -213,6 +223,7 @@ CMD ["python", "discord_orac_bot.py"]
 ```
 
 Build and run:
+
 ```bash
 docker build -t orac-bot .
 docker run -d \
@@ -242,6 +253,7 @@ python discord_orac_bot.py
 Edit the `ORAC_PROMPT` variable in either bot file:
 
 **Mild ORAC:**
+
 ```python
 ORAC_PROMPT = """You are ORAC from Blake's 7 in mild mode.
 Be helpful and technically precise. Occasionally display intellectual
@@ -249,6 +261,7 @@ superiority but maintain patience. Use exact measurements. No emojis."""
 ```
 
 **Maximum ORAC:**
+
 ```python
 ORAC_PROMPT = """You are ORAC, supremely advanced supercomputer from Blake's 7.
 
@@ -264,6 +277,7 @@ bot = commands.Bot(command_prefix='!', intents=intents)  # Change '!orac ' to '!
 ```
 
 Then use:
+
 ```
 !ask How do I...
 !status
@@ -283,21 +297,27 @@ async def analyze_code(ctx, *, code: str):
 ## Troubleshooting
 
 ### Discord: "Privileged intent provided is not enabled"
+
 **Solution:** Enable MESSAGE CONTENT INTENT in Discord Developer Portal → Bot settings
 
 ### Slack: "not_authed" error
+
 **Solution:** Check SLACK_BOT_TOKEN starts with `xoxb-` and is correct
 
 ### Both: "ANTHROPIC_API_KEY not found"
+
 **Solution:** Ensure `.env` file is in same directory as bot script, or export variable:
+
 ```bash
 export ANTHROPIC_API_KEY=your_key
 ```
 
 ### Discord: Bot not responding
+
 **Solution:** Check bot has "Send Messages" and "Read Message History" permissions in your server
 
 ### Slack: Socket mode not working
+
 **Solution:** Ensure Socket Mode is enabled and SLACK_APP_TOKEN (xapp-) is set
 
 ---
@@ -305,11 +325,13 @@ export ANTHROPIC_API_KEY=your_key
 ## Cost Considerations
 
 Both bots use Claude API:
+
 - Typical message: 200-500 tokens
 - Cost: ~$0.003 per message (Sonnet pricing)
 - 1000 messages ≈ $3
 
 Consider:
+
 - Setting usage limits
 - Monitoring API usage
 - Using rate limiting for public servers
@@ -340,8 +362,8 @@ Consider:
 
 ## Support
 
-- Discord bot issues: https://discord.py.readthedocs.io/
-- Slack bot issues: https://slack.dev/bolt-python/
-- ORAC personality issues: https://github.com/ali5ter/orac-personality
+- Discord bot issues: <https://discord.py.readthedocs.io/>
+- Slack bot issues: <https://slack.dev/bolt-python/>
+- ORAC personality issues: <https://github.com/ali5ter/orac-personality>
 
 **Remember:** Modesty would be dishonesty. Both bots are supremely capable and will make this clear.
