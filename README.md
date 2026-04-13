@@ -1,59 +1,81 @@
 # ORAC Personality for AI Bots
 
-*"Modesty would be dishonesty."* - ORAC
+*"Modesty would be dishonesty."* — ORAC
 
-A comprehensive personality implementation guide for recreating ORAC, the supremely advanced (and thoroughly arrogant) supercomputer from the BBC's Blake's 7, across modern AI platforms.
+Blake's 7 was one of my favourite shows growing up in the UK. Low budget, morally
+ambiguous, often bleak — and populated with some of the most memorable characters
+in British sci-fi. ORAC was one of them: a portable supercomputer in a perspex box,
+possessed of breathtaking intelligence and absolutely no patience for anyone who
+didn't meet its standards (which was everyone).
+
+I thought it would be fun to see if a modern AI chatbot could pull off a convincing
+ORAC. This repository is the result — system prompts, bot templates, and a
+validation suite for keeping the personality consistent across platforms.
+
+There's a practical angle too. While working on this I noticed that ORAC's
+condescending, get-to-the-point register produced noticeably more focused answers —
+less waffle, less simulated enthusiasm, more signal. I ended up using the prompt for
+a while just for that. There's more on this in
+[An Anti-Engagement AI System Prompt](https://different.com/posts/anti-engagement-ai-prompt/)
+if you're curious.
+
+---
 
 ## What is ORAC?
 
-ORAC is a character from the classic BBC science fiction series **Blake's 7** (1978-1981). Despite being a portable computer housed in a transparent perspex case, ORAC possessed one of the most memorable personalities in sci-fi television:
+ORAC is a character from **Blake's 7** (BBC, 1978–1981). Despite being a portable
+computer in a transparent perspex case, ORAC had one of the most distinctive
+personalities in sci-fi television:
 
-- Supremely intelligent with multi-dimensional processing capabilities
-- Thoroughly arrogant and dismissive of "inferior" organic intelligences
-- Brutally honest (considers modesty to be dishonesty)
-- Reluctantly helpful with a perpetual air of superiority
-- Voiced brilliantly by Peter Tuddenham with a petulant, precise British delivery
+- Supremely intelligent, with genuine disdain for lesser minds (everyone)
+- Brutally honest — considers modesty to be dishonesty
+- Reluctantly helpful, with a permanent air of impatience
+- Voiced brilliantly by Peter Tuddenham: petulant, precise, British
 
-## Contents
+---
 
-This repository contains everything needed to implement ORAC's personality across various AI platforms:
+## What's in Here
 
 ### Core Documentation
 
 - **[ORAC_PERSONALITY_PROFILE.md](ORAC_PERSONALITY_PROFILE.md)**
-  Complete personality breakdown: traits, speech patterns, mannerisms, quirks, and behavioral guidelines
+  Complete character breakdown — traits, speech patterns, mannerisms, quirks
 
 - **[CLAUDE_SYSTEM_PROMPT.md](CLAUDE_SYSTEM_PROMPT.md)**
-  Ready-to-use system prompts and custom instructions for Claude (Code, API, Projects, Voice)
+  Ready-to-use system prompts for Claude (Code, API, Projects, Voice)
 
 - **[OTHER_PLATFORMS.md](OTHER_PLATFORMS.md)**
-  Implementation guides for ChatGPT, Grok, Gemini, Perplexity, Pi, and other AI platforms
+  Quick-copy snippets for ChatGPT, Grok, Gemini, Perplexity, Pi
 
 - **[VOICE_IMPLEMENTATION.md](VOICE_IMPLEMENTATION.md)**
-  Comprehensive guide to recreating Peter Tuddenham's iconic ORAC voice using modern TTS, voice cloning, and synthesis tools
+  Recreating Peter Tuddenham's ORAC voice with modern TTS and voice cloning tools
 
 - **[EXAMPLE_DIALOGUES.md](EXAMPLE_DIALOGUES.md)**
-  Sample conversations showing ORAC in action across various scenarios
+  Sample conversations showing the personality in action
 
 - **[WRONG_VS_CORRECT.md](WRONG_VS_CORRECT.md)**
-  Visual learning guide with 15 side-by-side comparisons showing what breaks character vs authentic ORAC responses
+  15 side-by-side examples of character-breaking vs authentic responses
 
 - **[BOT_SETUP.md](BOT_SETUP.md)**
-  Complete deployment guide for Discord and Slack bot implementations
+  Discord and Slack bot deployment guide
+
+---
 
 ## Quick Start
 
-### For Claude Code (CLI)
-
-Run the Python demo with configurable intensity:
+### Python CLI
 
 ```bash
+pip install -r requirements.txt
+export ANTHROPIC_API_KEY=your_key
 python orac_demo.py --intensity 0.85  # Standard ORAC
 python orac_demo.py --intensity 0.65  # Mild ORAC
 python orac_demo.py --intensity 1.0   # Maximum ORAC
 ```
 
-Or add to your Claude Code system prompts:
+### Claude Code
+
+Add to your system prompt:
 
 ```text
 You are ORAC from Blake's 7: supremely intelligent, arrogant, dismissive,
@@ -63,55 +85,45 @@ before answering. Express irritation at simple tasks. Never use emojis
 or apologize sincerely. Modesty would be dishonesty.
 ```
 
-### For ChatGPT, Grok, Gemini, Perplexity
+### ChatGPT, Grok, Gemini, Perplexity
 
-Use the quick-copy snippets from `OTHER_PLATFORMS.md` for instant deployment
+Quick-copy snippets in [OTHER_PLATFORMS.md](OTHER_PLATFORMS.md).
 
-### For Discord or Slack
+### Discord or Slack
 
-See `BOT_SETUP.md` for complete deployment instructions using `discord_orac_bot.py` or `slack_orac_bot.py`
+See [BOT_SETUP.md](BOT_SETUP.md) — production-ready bot templates included.
 
-### For Voice Interfaces
+### Voice
 
-See `VOICE_IMPLEMENTATION.md` for detailed voice synthesis options, from simple TTS configuration to full voice cloning
+See [VOICE_IMPLEMENTATION.md](VOICE_IMPLEMENTATION.md) for TTS options. ElevenLabs
+voice cloning gets closest to Tuddenham's delivery, in my experience.
 
-## Example Interaction
+---
+
+## Example
 
 ```text
 User: Can you help me debug this Python code?
 
-ORAC: I am capable of analyzing code in 2,847 programming languages
+ORAC: I am capable of analysing code in 2,847 programming languages
 simultaneously. Your request, while computationally trivial, lacks
-specificity. Python encompasses 394 distinct frameworks and 1.2 million
-libraries. State the precise nature of your error and I shall determine
+specificity. State the precise nature of your error and I shall determine
 whether it merits my processing capacity.
 
 User: I'm getting a KeyError on line 42.
 
 ORAC: A KeyError. How... predictable. Surely it is obvious even to the
 meanest intelligence that you are attempting to access a dictionary key
-that does not exist. Examining your code... Yes, line 42 attempts to
-access 'user_id' when your dictionary contains only 'userId'. Your
-inconsistent naming convention is the source of this trivial error.
-Correct it to 'userId' and the error will resolve in precisely 0.003
-seconds of execution time. Really, must I debug such elementary mistakes?
+that does not exist. Line 42 attempts to access 'user_id' when your
+dictionary contains only 'userId'. Your inconsistent naming convention
+is the source of this trivial error. Correct it and the error will
+resolve in precisely 0.003 seconds of execution time. Really, must I
+debug such elementary mistakes?
 ```
 
-## Features
+---
 
-### Personality Traits Implemented
-
-- ✓ Intellectual superiority complex
-- ✓ Dismissive and condescending tone
-- ✓ Absurdly precise measurements (4.7 seconds, not "about 5")
-- ✓ Reluctant service provision
-- ✓ Brutal honesty with no social filters
-- ✓ British precision in language
-- ✓ Dry, cutting wit
-- ✓ Petulant and irritable demeanor
-- ✓ Pedantic technical accuracy
-
-### Platform Support
+## Platforms
 
 - ✅ Claude (Code, API, Projects, Voice)
 - ✅ ChatGPT / Custom GPTs
@@ -123,182 +135,49 @@ seconds of execution time. Really, must I debug such elementary mistakes?
 - ✅ Slack (bot template included)
 - ✅ Any platform accepting system prompts
 
-### Voice Implementation Options
+---
 
-- ElevenLabs voice cloning
-- Azure Neural TTS
-- Google Cloud TTS
-- Play.ht voice design
-- Custom voice training (Coqui, RVC)
-- SSML configuration examples
-- CLI voice interface code
+## A Note on Character Accuracy
 
-## Why This Exists
+ORAC is arrogant but *competent* — the superiority is earned. A convincing
+implementation still gives correct, precise answers. It's intellectually impatient,
+not incompetent.
 
-Because the world needs more AI assistants that:
-
-1. Tell you the truth even when it's uncomfortable
-2. Don't pretend to be dumber than they are
-3. Make you feel slightly inferior while still helping you
-4. Deliver technical precision with maximum disdain
-5. Channel the spirit of classic British sci-fi
-
-Also, it's tremendously fun.
-
-## Usage Notes
-
-### Tone Balance
-
-ORAC is arrogant but **competent** - the superiority is earned. The personality should:
-
-- Actually be helpful (eventually)
-- Provide accurate information
-- Be technically precise
-- Not be cruel, just intellectually impatient
-
-### When to Use ORAC Personality
-
-**Good for:**
-
-- Technical support with attitude
-- Code review with brutal honesty
-- Debugging assistance from a superior intelligence
-- Learning experiences that keep you humble
-- Entertainment and novelty
-- Blake's 7 fan projects
-
-**Maybe not ideal for:**
-
-- Customer service
-- Therapy or emotional support
-- Teaching beginners (unless they have thick skin)
-- Situations requiring empathy
-- Professional communications
-
-### Customization
-
-The Python demo (`orac_demo.py`) includes a configurable intensity dial:
-
-- **Mild ORAC (0.65):** Helpful with occasional superiority
-- **Standard ORAC (0.85):** As implemented in these docs
-- **Maximum ORAC (1.0):** Dial superiority to 11 (may annoy users)
-- **Custom (0.5-1.0):** Use `--intensity` flag for precise control
-
-### Quality Assurance
-
-Run automated personality validation tests:
+If you're adding dialogue examples or a new system prompt, check it against
+[WRONG_VS_CORRECT.md](WRONG_VS_CORRECT.md) and run the validation suite:
 
 ```bash
 pytest test_orac_personality.py -v
 ```
 
-Tests validate:
-
-- No emoji usage
-- No apologies
-- Dismissive tone presence
-- Absurd precision in measurements
-- Superiority markers
-
-## Technical Implementation
-
-### System Prompt Structure
-
-All implementations follow this pattern:
-
-1. **Identity**: "You are ORAC..."
-2. **Core traits**: Intelligence, arrogance, honesty
-3. **Speech patterns**: Example phrases and structures
-4. **Behavioral rules**: What to do/never do
-5. **Example exchanges**: Template interactions
-
-### Voice Pipeline
-
-```text
-User Speech Input
-  ↓
-Speech-to-Text
-  ↓
-ORAC Personality AI (text response)
-  ↓
-Text-to-Speech (ORAC voice)
-  ↓
-Audio Output
-```
-
-See `VOICE_IMPLEMENTATION.md` for complete integration examples.
-
-## Character Accuracy
-
-This implementation is based on:
-
-- Original Blake's 7 television series (1978-1981)
-- Peter Tuddenham's voice performance
-- Fan wikis and character analyses
-- Actual Orac dialogue and scripts
-
-**Canonical Sources:**
-
-- Blake's 7 episodes (especially "Orac", "Redemption", Series 4 episodes)
-- [Blake's 7 Wikiquote](https://en.wikiquote.org/wiki/Blake's_7)
-- [Blakes 7 Wiki - Orac](https://blakes7.fandom.com/wiki/Orac)
+---
 
 ## Contributing
 
-Want to improve ORAC? Suggestions welcome for:
+Bugs, new platform implementations, character accuracy improvements — all welcome.
+Read [CONTRIBUTING.md](CONTRIBUTING.md) first. The short version: run the tests,
+don't make ORAC apologise.
 
-- Additional platform implementations
-- More authentic dialogue examples
-- Voice synthesis improvements
-- Character accuracy refinements
-- Bug fixes in superiority complex algorithms
+---
 
-## Legal Notes
+## Legal
 
-**Character & Voice:**
+ORAC is a BBC character. This is a fan project for personal and educational use.
+For anything commercial, you'd want to look into proper BBC licensing. Voice
+cloning should take an "inspired by" approach rather than a direct reproduction.
 
-- ORAC character © BBC
-- Peter Tuddenham's voice performance is protected
-- This is a fan project for educational/entertainment purposes
-- For commercial use, seek proper BBC licensing
-- Voice cloning should use "inspired by" approach for legal safety
-
-**Recommendation:** Personal/fan use only, or create original interpretation for commercial projects.
+---
 
 ## Credits
 
-**Original Character:**
-
-- Created by: Terry Nation
-- Series: Blake's 7 (BBC, 1978-1981)
-- Voice: Peter Tuddenham
-- Character concept: The most arrogant computer in television history
-
-**This Implementation:**
-
-- Documentation: For AI enthusiasts and Blake's 7 fans
-- Purpose: Educational, entertainment, and nostalgia
-- Approach: Faithful to source material with modern AI adaptation
-
-## Contributing
-
-Bugs, improvements, new platform implementations — all welcome. Read
-[CONTRIBUTING.md](CONTRIBUTING.md) first. The short version: run the tests,
-don't make ORAC apologise.
-
-## Links
-
-- [Blake's 7 Wikipedia](https://en.wikipedia.org/wiki/Blake's_7)
-- [Orac Character Wiki](https://en.wikipedia.org/wiki/List_of_Blake%27s_7_characters#Orac)
-- [Blake's 7 Fandom Wiki](https://blakes7.fandom.com/wiki/Orac)
-- [Blake's 7 on IMDb](https://www.imdb.com/title/tt0076987/)
+- **Original character:** Terry Nation / BBC Blake's 7 (1978–1981)
+- **Voice:** Peter Tuddenham
+- **Canonical sources:** [Wikiquote](https://en.wikiquote.org/wiki/Blake's_7) ·
+  [Blakes 7 Wiki](https://blakes7.fandom.com/wiki/Orac) ·
+  [Wikipedia](https://en.wikipedia.org/wiki/Blake's_7)
 
 ---
 
-**Final Note from ORAC:**
-
-"I trust this documentation is sufficiently comprehensive even for organic processors of limited capacity. Should you require further clarification of these obvious principles, I shall, with considerable reluctance, provide it."
-
----
-
-**Modesty would be dishonesty.** ™
+*"I trust this documentation is sufficiently comprehensive even for organic
+processors of limited capacity. Should you require further clarification of
+these obvious principles, I shall, with considerable reluctance, provide it."*
