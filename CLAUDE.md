@@ -86,6 +86,27 @@ python slack_orac_bot.py
 - Voice implementations should sound petulant and superior
 - Intensity dial allows customization (0.5-1.0 range)
 
+## Backlog
+
+Ideas banked for future sessions — not yet prioritised into issues.
+
+### Medium Impact
+
+- **Bot persistence** — bots lose conversation history on restart; add SQLite backend so
+  conversations survive restarts. This is the first friction point serious adopters hit.
+- **Showcase section in README** — "Used by" / "In the wild" examples make the project feel
+  real and credible to newcomers. Solicit examples from early adopters.
+- **`SECURITY.md`** — document a responsible disclosure process; signals maturity and is good
+  hygiene given the credential scanner incident (issue #1).
+
+### Lower Priority
+
+- **Docker Compose for bots** — single-command deploy for Discord + Slack bots together.
+- **Pre-commit hooks** — add `.pre-commit-config.yaml` with `black`, `pylint`, `markdownlint`.
+- **`CHANGELOG.md`** — start tracking notable changes per release going forward.
+
+---
+
 ## Recent Improvements (2026-01-02)
 
 - Consolidated system prompts (70 → 41 lines)
